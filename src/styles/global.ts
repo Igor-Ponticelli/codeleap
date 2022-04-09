@@ -20,5 +20,6 @@ export const GlobalStyle = createGlobalStyle`
   }
   h1, h2, h3 ,h4, h5 {
     font-weight: 400;
+    flex-direction: re ;
   }
 `

@@ -1,27 +1,30 @@
 import { useEffect, useState } from "react";
-import edit from "../../assets/images/edit.svg";
-import remove from "../../assets/images/remove.svg";
-import { IPost } from "../../redux/reducer/types";
+import { IPostItem } from "../../redux/modules/myPost/types";
 import api from "../../services/api";
 import { Container } from "./styles";
+import edit from "../../assets/images/edit.svg";
+import remove from "../../assets/images/remove.svg";
 
 export function PostUsers() {
 
+// http://dev.codeleap.co.uk/careers/?limit=10&offset=10
 
-  const [ post, setPost ] = useState<IPost[]>([]);
+const [ post, setPost ] = useState<IPostItem[]>([]);
+
 
   useEffect(() => {
-    api.get('posts').then(response => {
-      setPost(response.data);
+    api.get('').then(response => {
+      setPost(response.data.results)
     })
-  }, []);
+  })
+
 
   return(
-    <>
-      {post.map(product => (
-        <Container>
-          <div key={product.id}>
-            <h4>{product.title}</h4>
+    <Container>
+      {post.map(post => (
+        <main key={post.id}>
+          <div>
+            <h4>{post.title}</h4>
             <ul>
               <button type="button">
                 <img src={remove} alt="Remove" />
@@ -32,12 +35,12 @@ export function PostUsers() {
             </ul>
           </div>
           <div>
-            <span>{product.username}</span>
-            <span>{product.createdAt}</span>
+            <span>@{post.username}</span>
+            <span>{post.createdAt}</span>
           </div>
-          <p>{product.content}</p>
-        </Container>
-      ))}
-    </>
+          <p>{post.content}</p>
+        </main>
+      ))}   
+    </Container>
   );
 }

@@ -1,9 +1,10 @@
-import { CreatePost } from "../../components/CreatePost";
+import { objectTraps } from "immer/dist/internal";
+import CreatePost from "../../components/CreatePost";
 import { PostUsers } from "../../components/PostUsers";
 import { Container } from "./styles"
  
  
-export function Room(){
+export default function Room(){
 
   return(
       <Container>
@@ -17,3 +18,4 @@ export function Room(){
       </Container>
   );
 }
+

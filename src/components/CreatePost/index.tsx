@@ -1,36 +1,41 @@
 import { useState } from "react";
 import { Container, FormPost } from "./styles";
 
-export function CreatePost() {
 
-  const [ newTitlePost, setNewTitlePost ] = useState('');
-  const [ newContentPost, setNewContentPost ] = useState('');
 
-  function handleCreateNewPost(){
-    console.log(newTitlePost, newContentPost)
+const CreatePost: React.FC = () => {
+
+  const [ content, setContent ] = useState('');
+  const [ title, setTitle ] = useState('');
+
+  function handleNewContent(){
+    setContent(content);
+    setTitle(title);
+    console.log(content, title)
   }
 
   return(
     <Container className="post">
       <h3>What's on your mind?</h3>
       <FormPost>
+
         <label>Title</label>
         <input 
           type="text" 
           placeholder="Hello world"
-          onChange={(e) => setNewTitlePost(e.target.value)}
-          value={newTitlePost}
+          onChange={(e) => setTitle(e.target.value)}
         />
+
         <label>Content</label>
         <textarea 
           placeholder="Content here" 
           maxLength={350}
-          onChange={(e) => setNewContentPost(e.target.value)}
-          value={newContentPost}
-          ></textarea>
+          onChange={(e) => setContent(e.target.value)}
+        />
+
         <button 
           type="button"
-          onClick={handleCreateNewPost}
+          onClick={handleNewContent}
         >
           Create
         </button>
@@ -38,3 +43,5 @@ export function CreatePost() {
     </Container>
   );
 }
+
+export default CreatePost;

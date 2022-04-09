@@ -1,11 +1,10 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  margin-top: 3rem;
   padding: 2rem;
   border: 1px solid #cccccc;
   border-radius: 8px;
-  margin-bottom: 6rem;
+  margin: 3rem 2rem 6rem ;
   h3 {
     color: #181818;
     font-family: 'Poppins', sans-serif;

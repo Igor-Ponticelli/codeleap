@@ -1,12 +1,17 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  margin-bottom: 1.5rem;
   padding: 2rem;
-  border: 1px solid #cccccc;
-  border-radius: 8px;
 
-  div {
+  main {
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    padding: 2rem;
+   & + main {
+    margin-top: 1.5rem;
+   }
+  }
+  main div {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -23,6 +28,7 @@ export const Container = styled.div`
         transition: filter 0.15s;
         &:hover {
           filter: brightness(0);
+          transform: scale(1.1); 
         }
       }
     }
